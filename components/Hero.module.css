@@ -1,0 +1,247 @@
+.hero {
+  position: relative;
+  min-height: calc(100vh - 80px); /* Adjust for navbar height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--background-primary);
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
+  padding-top: 80px; /* Space for sticky navbar */
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* Floating orbs - adjust colors for better visibility in light theme */
+.floatingOrb1,
+.floatingOrb2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+  animation: float 8s ease-in-out infinite;
+}
+
+.floatingOrb1 {
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(135deg, #a8c0ff 0%, #3f2b96 100%); /* Lighter blue/purple for light theme */
+  top: -200px;
+  right: -200px;
+  animation-delay: 0s;
+}
+
+.floatingOrb2 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%); /* Pink/light blue for light theme */
+  bottom: -150px;
+  left: -150px;
+  animation-delay: 2s;
+}
+
+.dark .floatingOrb1 {
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); /* Original gradient for dark theme */
+}
+
+.dark .floatingOrb2 {
+  background: linear-gradient(135deg, #ec4899 0%, #f97316 100%); /* Original gradient for dark theme */
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+}
+
+/* Hero Content */
+.heroContent {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  background: var(--background-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.badge svg {
+  color: var(--accent-purple);
+}
+
+/* Main Heading */
+.mainHeading {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+/* Subheading */
+.subheading {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+}
+
+/* CTA Buttons */
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.primaryBtn {
+  background: var(--button-primary-bg);
+  color: var(--button-primary-text);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+}
+
+.primaryBtn:hover {
+  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.3);
+  opacity: 0.9;
+}
+
+.secondaryBtn {
+  background: var(--button-secondary-bg);
+  border: 1px solid var(--button-secondary-border);
+  color: var(--button-secondary-text);
+}
+
+.secondaryBtn:hover {
+  background: var(--button-secondary-text);
+  color: var(--button-primary-text);
+  border-color: var(--button-secondary-text);
+}
+
+/* Trust Indicators */
+.trustIndicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.trustItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.trustItem p {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.avatarGroup {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a8c0ff 0%, #3f2b96 100%); /* Lighter gradient for avatars */
+  border: 2px solid var(--background-primary);
+  margin-left: -12px;
+}
+
+.dark .avatar {
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); /* Original gradient for dark theme */
+  border-color: var(--background-primary);
+}
+
+.avatar:first-child {
+  margin-left: 0;
+}
+
+.avatarMore {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--background-secondary);
+  border: 2px solid var(--background-primary);
+  margin-left: -12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.rating {
+  color: #fbbf24;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+}
+
+.divider {
+  width: 1px;
+  height: 40px;
+  background: var(--border-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 90vh;
+    padding-top: 60px; /* Adjust for smaller navbar */
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    justify-content: center;
+  }
+}
